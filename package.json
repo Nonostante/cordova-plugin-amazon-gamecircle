@@ -1,0 +1,20 @@
+{
+  "name": "cordova-plugin-amazon-gamecircle",
+  "version": "1.0.0",
+  "description": "Add Amazon GameCircle service to your cordova project",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nonostante/cordova-plugin-amazon-gamecircle"
+  },
+  "keywords": [
+    "cordova",
+    "plugin",
+    "game",
+    "game",
+    "services",
+    "amazon",
+    "gamecircle"
+  ],
+  "author": "Nonostante",
+  "license": "Apache-2.0"
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-amazon-gamecircle"
+    version="1.0.0">
+	
+    <name>Amazon GameCircle cordova plugin</name>
+    <description>Integrate Amazon GameCricle service to your cordova project</description>
+    <author>NonostanteGames</author>	
+    <license>MIT</license>
+    <keywords>cordova,plugin,game,game services,amazon,gamecircle</keywords>
+    <repo>https://github.com/nonostante/cordova-plugin-amazon-gamecircle</repo>
+    <issue>https://github.com/nonostante/cordova-plugin-amazon-gamecircle/issues</issue>	
+	<engines>
+	    <engine name="cordova" version=">=6.0.0" />
+	</engines>
+ 		
+    <js-module src="www/amazon_gameCircle.js" name="GameCircle">
+        <clobbers target="window.gameCircle" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+		<preference name="API_KEY" />
+
+        <hook type="after_prepare" src="hooks/writeKey.js" />
+
+	    <config-file target="res/xml/config.xml" parent="/*">
+			<feature name="GameCircle" >
+				<param name="android-package" value="io.nonostante.games.cordova.GameCircle"/>
+			</feature>
+        </config-file>
+
+		<edit-config target="AndroidManifest.xml" parent="/manigest" mode="merge">
+            <manifest xmlns:tools="http://schemas.android.com/tools" />
+        </edit-config>        
+		<edit-config target="AndroidManifest.xml" parent="/manifest/application" mode="merge">
+            <application tools:replace="android:label" />
+        </edit-config>        
+
+		<source-file src="src/android/GameCircle.java" target-dir="src/io/nonostante/games/cordova"/>
+
+        <framework src="src/android/sdk" custom="true" />
+	</platform>
+</plugin>
